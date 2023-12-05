@@ -222,7 +222,7 @@ BONUS TEST DATA 1: [5, 2, 3]
 BONUS TEST DATA 2: [1, 5, 3, 9, 6, 1]
 
 */
-
+/*
 // 1.
 const poll = {
   question: 'What is your favourite programming language?',
@@ -267,3 +267,14 @@ poll.displayResults.call({ answers: [1, 5, 3, 9, 6, 1] });
 
 // [5, 2, 3]
 // [1, 5, 3, 9, 6, 1]
+*/
+
+/////////////////////////
+// Immediately Invoked Function Expressions (IIFE)
+
+// IIFE
+(function () {
+  console.log('This will never run again');
+})();
+
+(() => console.log('This will ALSO never run again'))();
