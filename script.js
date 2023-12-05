@@ -281,6 +281,7 @@ poll.displayResults.call({ answers: [1, 5, 3, 9, 6, 1] });
 (() => console.log('This will ALSO never run again'))();
 */
 
+/*
 /////////////////////////////////
 // Closures:
 // A closure is the closed-over variable environment of the execution context in which a function was created, even after that execution context is gone
@@ -301,3 +302,47 @@ booker();
 booker();
 
 console.dir(booker);
+*/
+
+/////////////////////////////////
+// More Closure Examples
+
+// Example 1
+let f;
+
+const g = function () {
+  const a = 23;
+  f = function () {
+    console.log(a * 2);
+  };
+};
+
+const h = function () {
+  const b = 777;
+  f = function () {
+    console.log(b * 2);
+  };
+};
+
+g();
+f();
+console.dir(f);
+
+// Re-assigning f function
+h();
+f();
+console.dir(f);
+
+// Example 2
+const boardPassengers = function (n, wait) {
+  const perGroup = n / 3;
+
+  setTimeout(function () {
+    console.log(`We are now boarding all ${n} passengers`);
+    console.log(`There are 3 groups, each with ${perGroup} passengers`);
+  }, wait * 1000);
+  console.log(`Will start boarding in ${wait} seconds`);
+};
+
+const perGroup = 100; // Cloruse has priority OVER the scope chain
+boardPassengers(180, 3);
