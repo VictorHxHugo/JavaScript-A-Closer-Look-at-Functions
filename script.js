@@ -269,6 +269,7 @@ poll.displayResults.call({ answers: [1, 5, 3, 9, 6, 1] });
 // [1, 5, 3, 9, 6, 1]
 */
 
+/*
 /////////////////////////
 // Immediately Invoked Function Expressions (IIFE)
 
@@ -278,3 +279,25 @@ poll.displayResults.call({ answers: [1, 5, 3, 9, 6, 1] });
 })();
 
 (() => console.log('This will ALSO never run again'))();
+*/
+
+/////////////////////////////////
+// Closures:
+// A closure is the closed-over variable environment of the execution context in which a function was created, even after that execution context is gone
+
+const secureBooking = function () {
+  let passengerCount = 0;
+
+  return function () {
+    passengerCount++;
+    console.log(`${passengerCount} passengers`);
+  };
+};
+
+const booker = secureBooking();
+
+booker();
+booker();
+booker();
+
+console.dir(booker);
